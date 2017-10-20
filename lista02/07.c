@@ -71,8 +71,15 @@ float kelvin_p_fah(float valor) {
 
 float dec_p_bin(float valor) {
 
-	
-		
+	float ind=0, total=0;
+
+	while(valor!=0) {
+		total+=fmod(valor,2)*pow(10,ind);
+		valor = floor(valor/2);
+		ind++;
+	}
+
+	return total;		
  
 }
 
@@ -83,7 +90,7 @@ float bin_p_dec(float valor) {
 	valor = fmod(origin,1);
 
 	while(fmod(valor,1)>0) {
-		total += trunc(valor)*pow(2,pot);
+		total += floor(valor)*pow(2,pot);
 		valor = fmod(valor*10,10);
 		pot--;
 		if (floor(valor)>1) break;
