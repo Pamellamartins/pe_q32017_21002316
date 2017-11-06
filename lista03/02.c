@@ -29,8 +29,7 @@ char main ()
 	char string[265];
 	
 
-	printf("Digite algo: ");
 	scanf("%s", string);
 
-	printf("invertida: %s\n", invertida(string));
+	printf("%s\n", invertida(string));
 }

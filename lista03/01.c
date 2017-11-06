@@ -17,8 +17,8 @@ char main ()
 {
 	char string[100];
 
-	printf("Digite algo: ");
+	
 	scanf("%s", string);
 
-	printf("num: %d\n", cont_vogais(string));
+	printf("%d\n", cont_vogais(string));
 }
