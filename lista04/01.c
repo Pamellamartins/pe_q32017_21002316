@@ -8,18 +8,18 @@ typedef struct pontos {
 	float z;
 } pontos;
 
-float dist( float x1, float y1, float z1, float x2, float y2, float z2)
+float dist( pontos p1, pontos p2)
 {
-	return sqrt(pow(x2-x1,2)+pow(y2-y1,2)+pow(z2-z1,2));
+	return sqrt(pow(p2.x-p1.x,2)+pow(p2.y-p1.y,2)+pow(p2.z-p1.z,2));
 }
 
 int main() 
 {
-	pontos p1[3];
-	pontos p2[3];
+	pontos p1;
+	pontos p2;
 
-	scanf("%f %f %f", &p1[0].x, &p1[1].y, &p1[2].z);
-	scanf("%f %f %f", &p2[0].x, &p2[1].y, &p2[2].z);
+	scanf("%f %f %f", &p1.x, &p1.y, &p1.z);
+	scanf("%f %f %f", &p2.x, &p2.y, &p2.z);
 
-	printf("%.2f\n", dist(p1[0].x, p1[1].y, p1[2].z, p2[0].x, p2[1].y, p2[2].z));
+	printf("%.2f\n", dist(p1, p2));
 }
