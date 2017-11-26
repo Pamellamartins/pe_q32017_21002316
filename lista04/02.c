@@ -19,14 +19,16 @@ int diferenca( tempo A, tempo B)
 int main()
 {
 	tempo A, B;
-	int t, minuto, segundo, decimo;
+	tempo dif;
  
-	scanf("%d %d %d", &A.min, &A.seg, &A.dec);
-	scanf("%d %d %d", &B.min, &B.seg, &B.dec);
+	scanf("%dm %ds %d", &A.min, &A.seg, &A.dec);
+	scanf("%dm %ds %d", &B.min, &B.seg, &B.dec);
 
 	t = diferenca(A, B);
 	
-	minuto = t/600;
-
-	printf("%d\n", t);
+	dif.min = t/6000;
+	dif.seg = (t%6000)/100;
+	dif.dec = (t%6000)%100;
+	
+	printf("%dm %ds %d\n", dif.min, dif.seg, dif.dec );
 }
