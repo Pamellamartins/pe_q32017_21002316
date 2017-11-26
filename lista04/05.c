@@ -8,21 +8,27 @@ typedef unsigned long int ulint;
 
 ulint f1(ulint x)
 {
-	if (x==0) return 1;
+	int sbits=0;
 
-	(double)x;
-	
-	while(x%2==0) {
+	while (x) {
+		sbits += x%2;
 		x = x/2;
 	}
-	
-	if(x==1) return 1;
-	return 0;
+
+	return sbits;
 }
 
 ulint f2(ulint x)
 {
-	return (x&1);
+	int sbits=0;
+
+	while (x) {
+		sbits += (x&1);
+		x = x>>1;
+	}
+	
+	return sbits;
+		
 }
 
 int main() 
@@ -32,7 +38,7 @@ int main()
 	ulint soma = 0;
 
 	tempo_init = clock();
-	for (int i=0; i<BIGNUM; i++) {
+	for (int i=0; i<1BIGNUM; i++) {
 		soma += f1(i);
 	}
 	tempo_fim = clock();
